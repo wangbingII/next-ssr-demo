@@ -10,7 +10,7 @@ WORKDIR $APP_PATH
 # 使用国内镜像，加速下面 apk add下载安装alpine不稳定情况
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-# 使用apk命令安装 nodejs 和 yarn
+# 使用apk命令安装 nodejs 和 yarn, next需要nodejs18以上
 RUN apk add --no-cache nodejs=18 yarn=1.22.17
 
 # 2. 基于基础镜像安装项目依赖
