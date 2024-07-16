@@ -11,7 +11,7 @@ WORKDIR $APP_PATH
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 # 使用apk命令安装 nodejs 和 yarn
-RUN apk add --update nodejs=16.20.2-r0 yarn=1.22.19-r0
+RUN apk add nodejs=16.13.1-r0 yarn=1.22.17-r0
 
 # 2. 基于基础镜像安装项目依赖
 FROM base AS install
