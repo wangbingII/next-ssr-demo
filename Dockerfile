@@ -1,4 +1,4 @@
-FROM node:20-alpine3.19 AS base
+FROM node:20-alpine AS base
 
 # 添加源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
