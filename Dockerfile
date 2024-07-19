@@ -7,17 +7,18 @@ WORKDIR /app
 # 复制package.json和package-lock.json
 COPY package*.json ./
 
-# 设置node环境变量
-ENV NODE_ENV production
 
 # 安装依赖
 RUN npm install
 
+# 构建Next.js应用
+RUN npm run build
+
 # 复制所有文件到工作目录
 COPY . .
 
-# 构建Next.js应用
-RUN npm run build
+# 设置node环境变量
+ENV NODE_ENV production
 
 # 暴露应用端口
 EXPOSE 3000
