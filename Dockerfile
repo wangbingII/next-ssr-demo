@@ -1,27 +1,25 @@
-# 使用Node.js官方镜像作为基础镜像
+# 使用 Node.js 官方的稳定版本作为基础镜像
 FROM node:20-alpine
 
 # 设置工作目录
 WORKDIR /app
 
-# 复制package.json和package-lock.json
+# 复制 package.json 和 package-lock.json 到工作目录
 COPY package*.json ./
 
+# 安装生产环境的依赖
+RUN npm ci --only=production
 
-# 安装依赖
-RUN npm install
-
-# 构建Next.js应用
-RUN npm run build
-
-# 复制所有文件到工作目录
+# 复制应用代码到工作目录
 COPY . .
 
-# 设置node环境变量
-ENV NODE_ENV production
+# 生成 Next.js 静态文件
+RUN npm run build
 
-# 暴露应用端口
+# 公开端口
 EXPOSE 3000
 
-# 启动Next.js应用
+ENV NODE_ENV production
+
+# 启动应用
 CMD ["npm", "start"]
