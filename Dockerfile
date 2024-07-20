@@ -13,6 +13,8 @@ RUN npm ci
 # 复制应用代码到工作目录
 COPY . .
 
+ENV BUILD_STANDALONE true
+
 # 生成 Next.js 静态文件
 RUN npm run build
 
