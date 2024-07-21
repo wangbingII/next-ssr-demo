@@ -1,0 +1,25 @@
+services:
+  nextjs:
+    image: nextjs
+    ports:
+      - "3000:3000"
+    build:
+      context: ./next-ssr-demo
+    environment:
+      - NODE_ENV=production
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - nextjs
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
