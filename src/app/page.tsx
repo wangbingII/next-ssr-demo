@@ -108,6 +108,11 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <div>
+        <a href="https://beian.miit.gov.cn/" target="_blank">
+          您的备案号 湘ICP备2024075841号
+        </a>
+      </div>
     </main>
   );
 }
