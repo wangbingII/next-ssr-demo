@@ -35,19 +35,16 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 docker image build -t next-ssr-demo .
 docker build -t next-ssr-demo .
 
 docker compose up --build -d
 docker compose exec nginx nginx -s reload
 
-
 docker exec -it wanglixuan-nginx-1 /bin/sh
 
 cat /etc/nginx/conf.d/default.conf
 
 docker compose restart nginx
-
 
 docker compose exec wanglixuan-nginx-1 nginx -s reload
